@@ -51,6 +51,7 @@ workflows:
             branches:
               only: main
       - build-prod:
+          type: approval
           filters:
             branches:
               only: main
