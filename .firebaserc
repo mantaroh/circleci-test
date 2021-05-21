@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "circleci-test-dev",
+    "staging": "circleci-test-staging",
+    "prod": "circleci-test-prod"
+  }
+}
