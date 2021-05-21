@@ -53,9 +53,12 @@ workflows:
           filters:
             branches:
               only: main
-      - build-prod:
+      - prod-approval:
           type: approval
-          filters:
-            branches:
-              only: main
+          requires:
+            - build-staging
+      - build-prod:
+          requires:
+            - prod-approval
 
+ 
