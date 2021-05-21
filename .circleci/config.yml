@@ -26,7 +26,7 @@ jobs:
           name: build
           command: npm run build
       - run:
-          name: deploy to dev staging
+          name: deploy to staging env
           command: ./node_modules/.bin/firebase -P staging deploy --token "$FIREBASE_TOKEN"
   build-prod:
     docker:
@@ -37,6 +37,9 @@ jobs:
       - run:
           name: build
           command: npm run build
+      - run:
+          name: deploy to prod env 
+          command: ./node_modules/.bin/firebase -P staging deploy --token "$FIREBASE_TOKEN"
 
 workflows:
   version: 2
@@ -51,6 +54,7 @@ workflows:
             branches:
               only: main
       - build-prod:
+          type: approval
           filters:
             branches:
               only: main
