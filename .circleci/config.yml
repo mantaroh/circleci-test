@@ -13,6 +13,9 @@ jobs:
       - run:
           name: build
           command: npm run build
+      - run:
+          name: deploy to dev env
+          command: ./node_modules/.bin/firebase deploy --toekn "$FIREBASE_TOKEN"
   build-staging:
     docker:
       - image: cimg/node:15.1
