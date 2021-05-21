@@ -14,7 +14,7 @@ jobs:
           name: build
           command: npm run build
       - run:
-          name: deploy to dev env
+          name: Dev Deploy
           command: ./node_modules/.bin/firebase -P default deploy --token "$FIREBASE_TOKEN"
   build-staging:
     docker:
@@ -26,7 +26,7 @@ jobs:
           name: build
           command: npm run build
       - run:
-          name: deploy to staging env
+          name: Staging Deploy 
           command: ./node_modules/.bin/firebase -P staging deploy --token "$FIREBASE_TOKEN"
   build-prod:
     docker:
@@ -38,7 +38,7 @@ jobs:
           name: build
           command: npm run build
       - run:
-          name: deploy to prod env 
+          name: Prod Deploy
           command: ./node_modules/.bin/firebase -P prod deploy --token "$FIREBASE_TOKEN"
 
 workflows:
